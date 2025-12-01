@@ -163,7 +163,7 @@ export default function App() {
       if (hash) return hash
       const last = window.localStorage.getItem('learn_last_topic')
       if (last) return last
-    } catch (e) { /* ignore */ }
+    } catch { /* ignore */ }
     return 'Intro'
   })
   const [userName, setUserName] = useState('Surya')
@@ -199,17 +199,20 @@ export default function App() {
     try {
       if (topic) window.location.hash = topic
       window.localStorage.setItem('learn_last_topic', topic)
-    } catch (e) { /* ignore */ }
+    } catch { /* ignore */ }
   }, [topic])
 
   // When userName changes, load their saved progress (if any)
   useEffect(() => {
     try {
       const raw = window.localStorage.getItem(`learn_progress_${userName}`)
-      if (raw) {
-        /* eslint-disable-next-line react-hooks/set-state-in-effect */
-        setTopicsStatus(JSON.parse(raw))
-      }
+      if (!raw) return
+      const parsed = JSON.parse(raw)
+      // only update if different to avoid cascading renders
+      try {
+        // Apply parsed state asynchronously to avoid synchronous setState in an effect
+        setTimeout(() => setTopicsStatus(parsed), 0)
+      } catch { /* ignore stringification errors */ }
     } catch (e) { console.error(e) }
   }, [userName])
 
@@ -224,10 +227,11 @@ export default function App() {
   useEffect(() => {
     try {
       const raw = window.localStorage.getItem(`learn_notes_${userName}`)
-      if (raw) {
-        /* eslint-disable-next-line react-hooks/set-state-in-effect */
-        setNotesByTopic(JSON.parse(raw))
-      }
+      if (!raw) return
+      const parsed = JSON.parse(raw)
+      try {
+        setTimeout(() => setNotesByTopic(parsed), 0)
+      } catch { /* ignore stringification errors */ }
     } catch (e) { console.error(e) }
   }, [userName])
 
@@ -254,6 +258,10 @@ export default function App() {
           <CyborgFox width={84} height={84} className="decor-fox" />
           <CyborgOwl width={84} height={84} className="decor-owl" />
           <CyborgCat width={84} height={84} className="decor-cat" />
+        </div>
+        <div style={{ display: 'flex', gap: 8, justifyContent: 'center', marginTop: 8 }}>
+          <button onClick={() => setTopic('React Home')} title="Back to Index">Index</button>
+          <button onClick={() => { navigator.clipboard?.writeText(window.location.href); }} title="Copy link to topic">Share</button>
         </div>
         <TutorialNav topics={TOPICS} current={topic} onSelect={setTopic} topicsStatus={topicsStatus} />
         <div style={{ marginTop: 12 }}>

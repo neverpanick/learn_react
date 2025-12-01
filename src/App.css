@@ -71,6 +71,10 @@
   padding: 0.6rem;
   text-align: left;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
 }
 .tutorial-nav button:hover {
   border-color: #646cff;
@@ -78,6 +82,18 @@
 .tutorial-nav button.active {
   border-color: #646cff;
   background: rgba(100,108,255,0.08);
+}
+
+.tutorial-nav button .title {
+  flex: 1 1 auto;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tutorial-nav button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(100,108,255,0.12);
 }
 
 @media (max-width: 720px) {
@@ -107,6 +123,10 @@ body::before {
 .tutorial-root h2 { color: #9db3ff; text-shadow: 0 0 8px rgba(120,150,255,0.1); }
 .card { padding: 1.2rem; border-radius: 10px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.03); box-shadow: 0 6px 24px rgba(15,15,30,0.45); }
 button { border-radius: 8px; border: 1px solid transparent; padding: 0.6em 1.2em; font-size: 1em; font-weight: 500; font-family: inherit; background-color: rgba(255,255,255,0.03); cursor: pointer; transition: border-color 0.25s, box-shadow 0.2s; }
+/* Forms inside cards: ensure inputs are full width and neatly spaced */
+.card label { display: flex; flex-direction: column; gap: 6px; margin-bottom: 8px }
+.card input[type="text"], .card input[type="email"], .card select, .card textarea { width: 100%; padding: 8px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.04); background: transparent; color: #fff }
+.index-item { cursor: pointer }
 button:hover { box-shadow: 0 6px 24px rgba(40, 20, 90, 0.15); }
 .tutorial-root label { color: #aab3ff }
 .tutorial-root p { color: #cfd8ff }
@@ -120,6 +140,14 @@ button:hover { box-shadow: 0 6px 24px rgba(40, 20, 90, 0.15); }
 /* Code snippet styling */
 .code-snippet { background: rgba(0,0,0,0.35); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); color: #bfeaff; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Helvetica Neue', monospace; font-size: 13px; overflow-x: auto }
 .tutorial-nav .serial { display: inline-block; width: 28px; color: #9db3ff; margin-right: 6px; font-size: 13px; text-align: right; opacity: 0.9; }
+.serial { color: #9db3ff; font-size: 13px; width: 28px; text-align: right; margin-right: 6px }
+.tutorial-nav .status-dot { margin-right: 8px }
+
+.index-item { display: flex; gap: 8px; align-items: center; justify-content: space-between; padding: 8px; border-radius: 8px }
+.index-item:hover { background: rgba(255,255,255,0.02) }
+.index-content { min-width: 260px; max-width: 60vw; overflow: hidden }
+.index-title { font-weight: 600 }
+.index-sub { font-size: 13px; color: #bfeaff }
 .hero-title { color: #bde0ff; font-size: 24px; margin-bottom: 4px }
 .hero-sub { color: #9db3ff; font-size: 13px }
 

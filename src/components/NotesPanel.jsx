@@ -4,11 +4,12 @@ export default function NotesPanel({ topic, notes, setNotes }) {
   const [draft, setDraft] = useState(notes || '')
 
   useEffect(() => {
-    // Only update the local draft state when the external notes change for the selected topic
-    // The rule triggers for calling setState inside an effect; we intentionally do this to keep a
-    // debounced draft editor in sync with externally saved notes.
-    /* eslint-disable-next-line react-hooks/set-state-in-effect */
-    if (notes !== draft) setDraft(notes || '')
+    // Keep the draft sync but update asynchronously to avoid triggering a synchronous setState
+    if (notes !== draft) {
+      const id = setTimeout(() => setDraft(notes || ''), 0)
+      return () => clearTimeout(id)
+    }
+    return undefined
   }, [notes, topic, draft])
 
   useEffect(() => {

@@ -25,6 +25,8 @@ Key Files (quick references)
  - `src/components/RouterDemo.jsx` — Lightweight hash-based routing example demonstrating programmatic navigation.
  - `src/components/ForwardRefDemo.jsx` — Example showing `React.forwardRef` usage.
  - `src/components/HOCDemo.jsx` — Small HOC (Higher-Order Component) demo.
+ - `src/components/IndexPage.jsx` — A searchable index page listing all topics with serial numbers and quick links.
+ - Misc UX: Keyboard navigation for the sidebar (arrow up/down, Enter to open); `Index` and `Share` buttons in the sidebar header; the current topic is synced to URL hash for deep linking.
 - `eslint.config.js` — Linting rules and global ignores (e.g., `dist`), `no-unused-vars` ignoring variables starting uppercase.
 - `package.json` — Scripts: `npm run dev`, `npm run build`, `npm run preview`, `npm run lint`.
 

@@ -37,7 +37,7 @@ export default function TutorialNav({ topics, current, onSelect, topicsStatus = 
         >
           <span className={`serial`}>{idx + 1}.</span>
           <span className={`status-dot ${topicsStatus[topic] || 'not-started'}`}></span>
-          {topic}
+          <span className="title">{topic}</span>
         </button>
       ))}
     </nav>

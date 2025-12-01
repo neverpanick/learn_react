@@ -14,13 +14,13 @@ export default function IndexPage({ topics, onOpen }) {
       </div>
       <div className="card" style={{ marginTop: 12 }}>
         <div style={{ display: 'grid', gap: 8 }}>
-          {filtered.map((t, i) => (
-            <div key={t} style={{ display: 'flex', gap: 8, justifyContent: 'space-between', alignItems: 'center' }}>
+          {filtered.map((t) => (
+            <div key={t} className="index-item" style={{ display: 'flex', gap: 8, justifyContent: 'space-between', alignItems: 'center' }}>
               <div style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-                <div style={{ width: 34, textAlign: 'right', color: '#9db3ff' }}>{topics.indexOf(t) + 1}.</div>
-                <div style={{ minWidth: 260 }}>
-                  <div style={{ fontWeight: 600 }}>{topicData[t]?.title || t}</div>
-                  <div style={{ fontSize: 13, color: '#bfeaff' }}>{(topicData[t]?.explanation || '').slice(0, 120)}{(topicData[t]?.explanation || '').length > 120 ? '…' : ''}</div>
+                <div className="serial" style={{ width: 34, textAlign: 'right', color: '#9db3ff' }}>{topics.indexOf(t) + 1}.</div>
+                <div className="index-content" style={{ minWidth: 260 }}>
+                  <div className="index-title" style={{ fontWeight: 600 }}>{topicData[t]?.title || t}</div>
+                  <div className="index-sub" style={{ fontSize: 13, color: '#bfeaff' }}>{(topicData[t]?.explanation || '').slice(0, 120)}{(topicData[t]?.explanation || '').length > 120 ? '…' : ''}</div>
                 </div>
               </div>
               <div>

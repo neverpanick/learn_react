@@ -1,0 +1,3 @@
+.container { padding: 12px; border-radius: 10px; background: linear-gradient(180deg, rgba(256,256,256,0.02), rgba(256,256,256,0.01)); }
+.title { font-weight: 700; color: #bde0ff }
+.text { color: #cfd8ff }

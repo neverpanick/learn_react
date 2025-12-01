@@ -1,0 +1,131 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Tutorial layout */
+.tutorial-root {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  min-height: 100vh;
+}
+.tutorial-root aside {
+  background: #111;
+  color: #fff;
+  padding: 1.5rem;
+  text-align: left;
+}
+.tutorial-root main {
+  background: linear-gradient(180deg, #141414, #222);
+  padding: 2rem;
+  color: #eee;
+}
+.tutorial-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 1rem;
+}
+.tutorial-nav button {
+  background: transparent;
+  border: 1px solid transparent;
+  color: #ddd;
+  padding: 0.6rem;
+  text-align: left;
+  cursor: pointer;
+}
+.tutorial-nav button:hover {
+  border-color: #646cff;
+}
+.tutorial-nav button.active {
+  border-color: #646cff;
+  background: rgba(100,108,255,0.08);
+}
+
+@media (max-width: 720px) {
+  .tutorial-root {
+    grid-template-columns: 1fr;
+  }
+  .tutorial-root aside {
+    text-align: center;
+  }
+}
+
+/* FUTURISTIC AI THEME */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(70,20,120,0.08), transparent 15%), linear-gradient(90deg, rgba(20,100,255,0.02), rgba(255,0,150,0.01));
+  pointer-events: none;
+  z-index: -1;
+}
+
+.tutorial-root aside { background: linear-gradient(180deg, #07070a, #0e0e18 60%); }
+.tutorial-root main { background: linear-gradient(180deg, rgba(20,20,30,0.6), rgba(18,18,22,0.88)); }
+.tutorial-nav button { background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.04); padding: 0.75rem 0.5rem; }
+.tutorial-nav button:hover { border-color: #7a6cff; color: #fff; }
+.tutorial-nav button.active { border-color: #7a6cff; box-shadow: 0 0 12px rgba(106,90,255,0.15); }
+.tutorial-root h2 { color: #9db3ff; text-shadow: 0 0 8px rgba(120,150,255,0.1); }
+.card { padding: 1.2rem; border-radius: 10px; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.03); box-shadow: 0 6px 24px rgba(15,15,30,0.45); }
+button { border-radius: 8px; border: 1px solid transparent; padding: 0.6em 1.2em; font-size: 1em; font-weight: 500; font-family: inherit; background-color: rgba(255,255,255,0.03); cursor: pointer; transition: border-color 0.25s, box-shadow 0.2s; }
+button:hover { box-shadow: 0 6px 24px rgba(40, 20, 90, 0.15); }
+.tutorial-root label { color: #aab3ff }
+.tutorial-root p { color: #cfd8ff }
+
+/* Status dots in the nav */
+.status-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 8px; box-shadow: 0 0 8px rgba(0, 0, 0, 0.35); }
+.status-dot.not-started { background: #6b6b6b }
+.status-dot.in-progress { background: #f0ad4e; box-shadow: 0 0 8px rgba(240,173,78,0.25); }
+.status-dot.completed { background: #64ffda; box-shadow: 0 0 12px rgba(100,255,218,0.25); }
+
+/* Code snippet styling */
+.code-snippet { background: rgba(0,0,0,0.35); padding: 10px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.03); color: #bfeaff; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Helvetica Neue', monospace; font-size: 13px; overflow-x: auto }
+.tutorial-nav .serial { display: inline-block; width: 28px; color: #9db3ff; margin-right: 6px; font-size: 13px; text-align: right; opacity: 0.9; }
+.hero-title { color: #bde0ff; font-size: 24px; margin-bottom: 4px }
+.hero-sub { color: #9db3ff; font-size: 13px }
+
+/* Progress controls buttons */
+.progress-btn { background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border: 1px solid rgba(255,255,255,0.04); color: #ddd; padding: 8px 12px; }
+.progress-btn.active { border-color: #64ffda; background: rgba(100,255,218,0.06); box-shadow: 0 6px 20px rgba(100,255,218,0.06); color: #dffaf2; }
+
+.decor-fox, .decor-owl, .decor-cat { filter: drop-shadow(0 6px 20px rgba(124,159,255,0.06)); opacity: 0.95 }
+.decor-fox:hover, .decor-owl:hover, .decor-cat:hover { transform: translateY(-4px) scale(1.04); transition: transform 200ms ease; }
